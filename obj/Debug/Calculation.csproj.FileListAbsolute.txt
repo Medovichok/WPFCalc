@@ -1,0 +1,15 @@
+D:\Programming\Projects\C#\Calculation\bin\Debug\Calculation.exe.config
+D:\Programming\Projects\C#\Calculation\bin\Debug\Calculation.exe
+D:\Programming\Projects\C#\Calculation\bin\Debug\Calculation.pdb
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation.csproj.AssemblyReference.cache
+D:\Programming\Projects\C#\Calculation\obj\Debug\MainWindow.g.cs
+D:\Programming\Projects\C#\Calculation\obj\Debug\App.g.cs
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation_MarkupCompile.cache
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation_MarkupCompile.lref
+D:\Programming\Projects\C#\Calculation\obj\Debug\MainWindow.baml
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation.g.resources
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation.Properties.Resources.resources
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation.csproj.GenerateResource.cache
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation.csproj.CoreCompileInputs.cache
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation.exe
+D:\Programming\Projects\C#\Calculation\obj\Debug\Calculation.pdb
