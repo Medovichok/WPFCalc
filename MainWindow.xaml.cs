@@ -159,5 +159,37 @@ namespace Calculation
             //}
             tbResult.Text = "Ответ: " + result;
         }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            tbFirst.Clear();
+            tbSecond.Clear();
+            tbResult.Text = "Ответ: " + 0;
+        }
+
+        private void btnPow_Click(object sender, RoutedEventArgs e)
+        {
+            double firstNum, secondNum, result;
+            if (!double.TryParse(tbFirst.Text, out firstNum))
+            {
+                MessageBox.Show("Первое число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
+                tbFirst.Clear();
+                tbFirst.Focus();
+                return;
+            }
+            try
+            {
+                secondNum = Convert.ToDouble(tbSecond.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Второе число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
+                tbSecond.Clear();
+                tbSecond.Focus();
+                return;
+            }
+            result = Math.Pow(firstNum,secondNum);
+            tbResult.Text = "Ответ: " + result;
+        }
     }
 }

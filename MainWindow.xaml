@@ -28,6 +28,10 @@
             <Button x:Name="btnMul" Content="*" FontSize="50" Click="btnMul_Click"/>
             <Button x:Name="btnDiv" Content="/" FontSize="50" Click="btnDiv_Click"/>
         </UniformGrid>
+        <UniformGrid Grid.Row="2" Grid.Column="2">
+            <Button Name="btnClear" Content="Clear" FontSize="30" Click="btnClear_Click"/>
+            <Button Name="btnPow" Content="^" FontSize="30"/>
+        </UniformGrid>
         <TextBlock x:Name="tbResult" Grid.Row="2" Grid.Column="1" Text="Ответ: " FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 30"/>
     </Grid>
 </Window>
