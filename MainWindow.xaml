@@ -22,13 +22,11 @@
         <TextBox x:Name="tbFirst" Grid.Row="1" Grid.Column="0" FontSize="20" Margin="20 50"/>
         <TextBlock Grid.Row="0" Grid.Column="2" Text="Введите второе число" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
         <TextBox x:Name="tbSecond" Grid.Row="1" Grid.Column="2" FontSize="20" Margin="20 50"/>
-        <UniformGrid Grid.Row="1" Grid.Column="1" Rows="2" Columns="2" >
+        <UniformGrid Grid.Row="1" Grid.Column="1" Rows="3" Columns="2" >
             <Button x:Name="btnAdd" Content="+" FontSize="50" Click="btnAdd_Click"/>
             <Button x:Name="btnSub" Content="-" FontSize="50" Click="btnSub_Click"/>
             <Button x:Name="btnMul" Content="*" FontSize="50" Click="btnMul_Click"/>
             <Button x:Name="btnDiv" Content="/" FontSize="50" Click="btnDiv_Click"/>
-        </UniformGrid>
-        <UniformGrid Grid.Row="2" Grid.Column="2">
             <Button Name="btnClear" Content="Clear" FontSize="30" Click="btnClear_Click"/>
             <Button Name="btnPow" Content="^" FontSize="30"/>
         </UniformGrid>
