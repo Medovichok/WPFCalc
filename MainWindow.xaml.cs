@@ -24,93 +24,7 @@ namespace Calculation
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// Сложение
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            double firstNum, secondNum, result;
-            if (!double.TryParse(tbFirst.Text, out firstNum))
-            {
-                MessageBox.Show("Первое число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbFirst.Clear();
-                tbFirst.Focus();
-                return;
-            }
-            try
-            {
-                secondNum = Convert.ToDouble(tbSecond.Text);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Второе число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbSecond.Clear();
-                tbSecond.Focus();
-                return;
-            }
-            result = firstNum + secondNum;
-            tbResult.Text = "Ответ: " + result;
-        }
-        /// <summary>
-        /// Вычитание
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSub_Click(object sender, RoutedEventArgs e)
-        {
-            double firstNum, secondNum, result;
-            if (!double.TryParse(tbFirst.Text, out firstNum))
-            {
-                MessageBox.Show("Первое число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbFirst.Clear();
-                tbFirst.Focus();
-                return;
-            }
-            try
-            {
-                secondNum = Convert.ToDouble(tbSecond.Text);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Второе число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbSecond.Clear();
-                tbSecond.Focus();
-                return;
-            }
-            result = firstNum - secondNum;
-            tbResult.Text = "Ответ: " + result;
-        }
-        /// <summary>
-        /// Умножение
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnMul_Click(object sender, RoutedEventArgs e)
-        {
-            double firstNum, secondNum, result;
-            if (!double.TryParse(tbFirst.Text, out firstNum))
-            {
-                MessageBox.Show("Первое число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbFirst.Clear();
-                tbFirst.Focus();
-                return;
-            }
-            try
-            {
-                secondNum = Convert.ToDouble(tbSecond.Text);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Второе число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbSecond.Clear();
-                tbSecond.Focus();
-                return;
-            }
-            result = firstNum * secondNum;
-            tbResult.Text = "Ответ: " + result;
-        }
+        
         /// <summary>
         /// Деление
         /// </summary>
@@ -118,8 +32,8 @@ namespace Calculation
         /// <param name="e"></param>
         private void btnDiv_Click(object sender, RoutedEventArgs e)
         {
-            double firstNum, secondNum, result;
-            if (!double.TryParse(tbFirst.Text, out firstNum))
+            double operand1, operand2, result;
+            if (!double.TryParse(tbFirst.Text, out operand1))
             {
                 MessageBox.Show("Первое число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
                 tbFirst.Clear();
@@ -128,7 +42,7 @@ namespace Calculation
             }
             try
             {
-                secondNum = Convert.ToDouble(tbSecond.Text);
+                operand2 = Convert.ToDouble(tbSecond.Text);
             }
             catch (FormatException)
             {
@@ -137,26 +51,40 @@ namespace Calculation
                 tbSecond.Focus();
                 return;
             }
-            if (secondNum == 0)
+
+            Button btn = e.Source as Button;
+            switch (btn.Content.ToString())
             {
-                MessageBox.Show("Нельзя делить на ноль", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbSecond.Clear();
-                tbSecond.Focus();
-                tbResult.Text = "Ответ:";
-                return;
+                case "+":
+                    result = operand1 + operand2;
+                    break;
+                case "-":
+                    result = operand1 - operand2;
+                    break;
+                case "*":
+                    result = operand1 * operand2;
+                    break;
+                case "/":
+                    result = operand1 / operand2;
+                    if (operand2 == 0)
+                    {
+                        MessageBox.Show("Нельзя делить на ноль", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
+                        tbSecond.Clear();
+                        tbSecond.Focus();
+                        tbResult.Text = "Ответ:";
+                        return;
+                    }
+                    break;
+                case "^":
+                    result = Math.Pow(operand1,operand2);
+                    break;
+
+                default:
+                    result = operand1;
+                    break;
             }
-            result = firstNum / secondNum;
-            //try
-            //{
-            //    result = firstNum / secondNum;
-            //}
-            //catch (DivideByZeroException)
-            //{
-            //    MessageBox.Show("Нельзя делить на ноль", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    tbSecond.Clear();
-            //    tbSecond.Focus();
-            //    return;
-            //}
+
+            result = operand1 / operand2;
             tbResult.Text = "Ответ: " + result;
         }
 
@@ -165,31 +93,6 @@ namespace Calculation
             tbFirst.Clear();
             tbSecond.Clear();
             tbResult.Text = "Ответ: " + 0;
-        }
-
-        private void btnPow_Click(object sender, RoutedEventArgs e)
-        {
-            double firstNum, secondNum, result;
-            if (!double.TryParse(tbFirst.Text, out firstNum))
-            {
-                MessageBox.Show("Первое число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbFirst.Clear();
-                tbFirst.Focus();
-                return;
-            }
-            try
-            {
-                secondNum = Convert.ToDouble(tbSecond.Text);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Второе число введено неверно", "Контроль над вводом", MessageBoxButton.OK, MessageBoxImage.Error);
-                tbSecond.Clear();
-                tbSecond.Focus();
-                return;
-            }
-            result = Math.Pow(firstNum,secondNum);
-            tbResult.Text = "Ответ: " + result;
         }
     }
 }
